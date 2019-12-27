@@ -2,8 +2,7 @@
 import { PositionType } from './PositionType';
 import { PassengerType } from './PassengerType';
 
-export type OrderType = {
-    id: string;
+export type OrderType = {    
     source: PositionType;
     destination: PositionType;
     passengers: PassengerType[];
