@@ -1,4 +1,4 @@
 export type PositionType = {
-    x:number;
-    y:number;
+    x: number;
+    y: number;
 }

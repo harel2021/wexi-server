@@ -3,11 +3,11 @@ import { IPassenger, collectionName } from './PassengerInterface';
 import { TypeUtils } from '../../utils/TypeUtils';
 
 const schema = new Schema({
-    [TypeUtils.propertyOf<IPassenger>('firstName')] : {
+    [TypeUtils.propertyOf<IPassenger>('firstName')]: {
         type: String,
         required: true
     },
-    [TypeUtils.propertyOf<IPassenger>('lastName')] : {
+    [TypeUtils.propertyOf<IPassenger>('lastName')]: {
         type: String,
         required: true
     },

@@ -1,17 +1,28 @@
 import { Schema, model } from 'mongoose';
 import { IOrder, collectionName } from './OrderInterface';
 import { PositionType } from '../../types/PositionType';
+import { TypeUtils } from '../../utils/TypeUtils';
+import PositionModel from '../Position/PositionModel';
+import PassengerModel from '../Passenger/PassengerModel';
 
 
 const schema = new Schema({
-    source: {
-        type: PositionType,
+    [TypeUtils.propertyOf<IOrder>('source')]: {
+        type: PositionModel,
     },
-    destination: {
-        type: PositionType,
+    [TypeUtils.propertyOf<IOrder>('destination')]: {
+        type: PositionModel,
+        required: true
     },
-    passengers: {
-        type: [PassengerType]
+    [TypeUtils.propertyOf<IOrder>('passengers')]: {
+        type: [PassengerModel],
+        required: true
     }
+
+
 });
+
+const OrderModel = model<IOrder>(collectionName, schema);
+
+export default OrderModel;
 
